@@ -1,42 +1,10 @@
+import DateTimeCard from "@/components/DateTimeCard";
 import PrivacySupportCard from "@/components/PrivacySupportCard";
-import UserChatCard from "@/components/UserChatCard";
 import UserDetailCard from "@/components/UserDetailCard";
-import UserMessageViewCard from "@/components/UserMessageViewCard";
+import UserMessageCard from "@/components/UserMessageCard";
 import UserPhoVidCard from "@/components/UserPhoVidCard";
 import { SendIcon } from "lucide-react";
 
-const UserChatData = [
-  {
-    name: "Kathryn Murphy",
-    username: "Haha terrifying 😂",
-    photo: "/src/assets/murphy.png",
-  },
-  {
-    name: "Esther Howard",
-    username: "Haha terrifying 😂",
-    photo: "/src/assets/howard.png",
-  },
-  {
-    name: "Jerome Bell",
-    username: "Haha terrifying 😂",
-    photo: "/src/assets/bell.png",
-  },
-  {
-    name: "Devon Lane",
-    username: "Haha terrifying 😂",
-    photo: "/src/assets/lane.png",
-  },
-  {
-    name: "Cameron Williamson",
-    username: "Haha terrifying 😂",
-    photo: "/src/assets/william.png",
-  },
-  {
-    name: "Devon Lane",
-    username: "Haha terrifying 😂",
-    photo: "/src/assets/lane.png",
-  },
-];
 const UserPicData1 = {
   src1: "/src/assets/pic1.jpg",
   src2: "/src/assets/pic2.jpg",
@@ -63,7 +31,7 @@ const PrivacySupportCardData = [
   },
 ];
 
-const Chat = () => {
+const Chat2 = () => {
   return (
     <div className="w-[1440px] mt-16  px-10">
       <div className="flex justify-between ">
@@ -93,21 +61,13 @@ const Chat = () => {
               />
             </div>
           </div>
-          <div className=" flex flex-col gap-[10px] -mt-5">
-            <UserChatCard
-              profilePic="/src/assets/chat1.png"
-              name="Kathryn Murphy"
-              chat="Haha terrifying 😂"
-              flag={true}
+          <div className=" flex flex-col gap-[10px] mt-6 items-center">
+            <img
+              src="/src/assets/dice.svg"
+              alt="dice"
+              className="w-[75.59px] h-[40px] "
             />
-            {UserChatData.map((data) => (
-              <UserChatCard
-                profilePic={data.photo}
-                name={data.name}
-                chat={data.username}
-                flag={false}
-              />
-            ))}
+            <p className="text-[18px] text-[#FAFBFC]">No message request</p>
           </div>
         </div>
         <div className=" flex flex-col justify-between w-[616px] h-[600px] rounded-2xl bg-[#171717]">
@@ -140,16 +100,48 @@ const Chat = () => {
                 />
               </div>
             </div>
-
-            <UserMessageViewCard
-              profile="/src/assets/cooper.png"
+            <UserMessageCard
+              profile="/src/assets/user1.png"
+              name="Jerome Bell"
+              date="10:50 am"
+              emoji={[
+                "/src/assets/smallemoji.svg",
+                "/src/assets/smallshare.svg",
+                "/src/assets/smallthreedot.svg",
+              ]}
+              message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore "
+              tick="/src/assets/doubletick.svg"
+              flag={true}
+              key={1}
+            />
+            <UserMessageCard
+              profile="/src/assets/user1.png"
               name="Jane Cooper"
-              username="@DianneRussell_04"
-              message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore"
+              date="10:50 am"
+              message="The process often involves figuring out what is required, brainstorming possible ideas, creating mock prototypes and then generating the product."
+              flag={false}
+              key={2}
             />
 
-            <div className="flex justify-between h-[68px] px-5 w-full items-center  rounded-b-2xl mt-[380px]">
+            <UserMessageCard
+              profile="/src/assets/user1.png"
+              name="Jane Cooper"
+              date="10:50 am"
+              message="The process often involves figuring out what is required, brainstorming "
+              flag={false}
+              key={2}
+            />
+             <DateTimeCard month="May" date="12" year="2021" />
+             <UserMessageCard
+              profile="/src/assets/user1.png"
+              name="Jane Cooper"
+              date="10:50 am"
+              message="The process often involves figuring out what is required, brainstorming "
+              flag={false}
+              key={2}
+            />
+
+            <div className="flex justify-between h-[68px] px-5 w-full items-center  rounded-b-2xl">
               <div
                 style={{}}
                 className={`${
@@ -215,4 +207,4 @@ const Chat = () => {
   );
 };
 
-export default Chat;
+export default Chat2;

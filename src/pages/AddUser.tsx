@@ -32,7 +32,7 @@ export const data2 = [
   },
 ];
 
-const UsersSearch = () => {
+const AddUser = () => {
   return (
     <div className=" flex flex-col w-[616px] h-[590px] rounded-2xl mt-[46px] bg-[#171717]">
       <div className=" flex items-center justify-between  px-[40px] z-50 bg-[#232628] rounded-t-2xl h-[55px]  shadow-btm-border">
@@ -42,7 +42,7 @@ const UsersSearch = () => {
             alt="arrow"
             className="w-[7.5px] h-[12px]"
           />
-          <p className="text-[16px] text-white font-normal">New Message</p>
+          <p className="text-[16px] text-white font-normal">Add  Users</p>
         </div>
 
         <img
@@ -100,11 +100,11 @@ const UsersSearch = () => {
           className="w-full h-[44px] text-white text-[16px] bg-[#2E9BFA] mt-3 "
           variant={"default"}
         >
-          Send message
+         Add
         </Button>
       </div>
     </div>
   );
 };
 
-export default UsersSearch;
+export default AddUser;

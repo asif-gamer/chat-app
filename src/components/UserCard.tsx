@@ -19,7 +19,11 @@ const UserCard = ({ name, username, photo, flag }: UserCardProps) => {
           <p className="text-[#B5B9BD] text-[14px]">{username}</p>
         </div>
       </div>
-      <div className={`w-[20px] h-[20px] rounded-full ${!flag?'bg-[#44474A]':'bg-blue-500 '}`} />
+      {flag ? (
+        <img src="/src/assets/SelectCircle.svg" alt="check" className="" />
+      ) : (
+        <div className={`w-[20px] h-[20px] rounded-full bg-[#44474A]`} />
+      )}
     </div>
   );
 };
