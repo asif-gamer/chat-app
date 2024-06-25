@@ -72,6 +72,19 @@ const Chat7 = () => {
   const [emoji, setEmoji] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const reachandle = (data: string) => {
+    const debounce = setTimeout(() => {
+      data === "hover"
+        ? setHover(true)
+        : data === "hover1"
+        ? setHover1(true)
+        : data === "hover2"
+        ? setHover2(true)
+        : setHover1(false);
+    }, 1500);
+    return () => clearTimeout(debounce);
+  };
   return (
     <div className="w-[1440px] mt-16  px-10">
       <div className="flex justify-between ">
@@ -163,10 +176,10 @@ const Chat7 = () => {
                   <div className="relative">
                     <img
                       src="/src/assets/smallemoji.svg"
-                      key={1}
+                      key={56}
                       alt="emoji"
                       className="h-[24px] w-[24px]"
-                      onMouseEnter={() => setHover(true)}
+                      onMouseEnter={() => reachandle("hover")}
                       onMouseLeave={() => setHover(false)}
                       onClick={() => setEmoji(!emoji)}
                     />
@@ -204,7 +217,7 @@ const Chat7 = () => {
                       key={1}
                       alt="emoji"
                       className="h-[24px] w-[24px]"
-                      onMouseEnter={() => setHover1(true)}
+                      onMouseEnter={() => reachandle("hover1")}
                       onMouseLeave={() => setHover1(false)}
                     />
                     <div
@@ -221,7 +234,7 @@ const Chat7 = () => {
                       key={1}
                       alt="emoji"
                       className="h-[24px] w-[24px]"
-                      onMouseEnter={() => setHover2(true)}
+                      onMouseEnter={() => reachandle("hover2")}
                       onMouseLeave={() => setHover2(false)}
                     />
                     <div
@@ -268,7 +281,7 @@ const Chat7 = () => {
                       confirm ? "block" : "hidden"
                     }`}
                   >
-                    <span className=" ">Remove reaction</span>
+                    <span className="-mb-4 ">Remove reaction</span>
                   </div>
                 </div>
               </div>
