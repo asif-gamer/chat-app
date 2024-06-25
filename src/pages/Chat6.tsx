@@ -1,21 +1,19 @@
+import DateTimeCard from "@/components/DateTimeCard";
 import PrivacySupportCard from "@/components/PrivacySupportCard";
 import UserChatCard from "@/components/UserChatCard";
 import UserDetailCard from "@/components/UserDetailCard";
-import UserMessageViewCard from "@/components/UserMessageViewCard";
+import UserMessageCard from "@/components/UserMessageCard";
 import UserPhoVidCard from "@/components/UserPhoVidCard";
-import { SendIcon } from "lucide-react";
 
-const UserChatData = [
+const UserChatDataA = [
   {
     name: "Kathryn Murphy",
     username: "Haha terrifying 😂",
     photo: "/src/assets/murphy.png",
   },
-  {
-    name: "Esther Howard",
-    username: "Haha terrifying 😂",
-    photo: "/src/assets/howard.png",
-  },
+];
+
+const UserChatDataB = [
   {
     name: "Jerome Bell",
     username: "Haha terrifying 😂",
@@ -37,33 +35,23 @@ const UserChatData = [
     photo: "/src/assets/lane.png",
   },
 ];
+
 const UserPicData1 = {
   src1: "/src/assets/pic1.jpg",
   src2: "/src/assets/pic2.jpg",
 };
 
-const UserPicData2 = {
-  src1: "/src/assets/pic3.jpg",
-  src2: "/src/assets/pic4.jpg",
-  src3: "/src/assets/pic5.jpg",
-};
 
 const PrivacySupportCardData = [
+ 
   {
-    title: "Mute Notification",
-    symbol: "/src/assets/mutemessage.svg",
-  },
-  {
-    title: "Block User",
-    symbol: "/src/assets/blockuser.svg",
-  },
-  {
-    title: "Report",
+    title: "Delete Chat",
     symbol: "/src/assets/report.svg",
   },
+
 ];
 
-const Chat = () => {
+const Chat6 = () => {
   return (
     <div className="w-[1440px] mt-16  px-10">
       <div className="flex justify-between ">
@@ -94,13 +82,21 @@ const Chat = () => {
             </div>
           </div>
           <div className=" flex flex-col gap-[10px] -mt-5">
+            {UserChatDataA.map((data) => (
+              <UserChatCard
+                profilePic={data.photo}
+                name={data.name}
+                chat={data.username}
+                flag={false}
+              />
+            ))}
             <UserChatCard
               profilePic="/src/assets/chat1.png"
               name="Kathryn Murphy"
               chat="Haha terrifying 😂"
               flag={true}
             />
-            {UserChatData.map((data) => (
+            {UserChatDataB.map((data) => (
               <UserChatCard
                 profilePic={data.photo}
                 name={data.name}
@@ -140,49 +136,56 @@ const Chat = () => {
                 />
               </div>
             </div>
-
-            <UserMessageViewCard
-              profile="/src/assets/cooper.png"
+            <UserMessageCard
+              profile="/src/assets/user1.png"
+              name="Jerome Bell"
+              date="10:50 am"
+              emoji={[
+                "/src/assets/smallemoji.svg",
+                "/src/assets/smallshare.svg",
+                "/src/assets/smallthreedot.svg",
+              ]}
+              message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore "
+              tick="/src/assets/doubletick.svg"
+              flag={true}
+              key={1}
+            />
+            <UserMessageCard
+              profile="/src/assets/user1.png"
               name="Jane Cooper"
-              username="@DianneRussell_04"
-              message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore"
+              date="10:50 am"
+              message="The process often involves figuring out what is required, brainstorming possible ideas, creating mock prototypes and then generating the product."
+              flag={false}
+              key={2}
             />
 
-            <div className="flex justify-between h-[68px] px-5 w-full items-center  rounded-b-2xl mt-[380px]">
+            <UserMessageCard
+              profile="/src/assets/user1.png"
+              name="Jane Cooper"
+              date="10:50 am"
+              message="The process often involves figuring out what is required, brainstorming "
+              flag={false}
+              key={2}
+            />
+            <DateTimeCard month="May" date="12" year="2021" />
+            <UserMessageCard
+              profile="/src/assets/user1.png"
+              name="Jane Cooper"
+              date="10:50 am"
+              message="The process often involves figuring out what is required, brainstorming "
+              flag={false}
+              key={2}
+            />
+
+            <div className="flex justify-between h-[68px] w-full items-center  rounded-b-2xl mt-5">
               <div
                 style={{}}
                 className={`${
                   true ? "" : ""
-                } flex flex-row h-[48px] w-full bg-[#2B2E30] space-x-5 items-center py-2.5 px-7  rounded-[18px]`}
+                } flex flex-row h-[49px]  w-[615px] text-white bg-[#2B2E30] text-[12px] space-x-5 items-center py-2.5 px-7  rounded-[18px]`}
               >
-                <input
-                  className="outline-none bg-transparent w-full text-typo-secondary rounded-sm!"
-                  placeholder="Write a message"
-                />
-                <div className="flex items-center gap-[24px] px-10">
-                  <img
-                    key={1}
-                    src="/src/assets/gallery.svg"
-                    alt="logo"
-                    className="h-[20px] w-[20px]"
-                  />
-                  <img
-                    key={2}
-                    src="/src/assets/mic.svg"
-                    alt="logo"
-                    className="h-[20px] w-[20px]"
-                  />
-                  <img
-                    key={3}
-                    src="/src/assets/emoji.svg"
-                    alt="logo"
-                    className="h-[20px] w-[20px]"
-                  />
-                  <button className="bg-[#2A85FF]  text-white rounded-[12px] px-4 py-2">
-                    <SendIcon size={16} />
-                  </button>
-                </div>
+                <p className="text-center ml-14">You cant send message to this group because you are no longer a member</p>
+              
               </div>
             </div>
           </div>
@@ -200,14 +203,58 @@ const Chat = () => {
             <UserDetailCard
               picture="/src/assets/user1.png"
               name="Jerome Bell"
-              username="@DianneRussell_04"
               notification="/src/assets/notibell.svg"
+              flag={true}
             />
-            <UserPhoVidCard
-              UserPicture1={UserPicData1}
-              UserPicture2={UserPicData2}
-            />
+            <UserPhoVidCard UserPicture1={UserPicData1} flag={true} />
+            <div className="flex flex-col gap-3 mt-1">
+              <div className="flex justify-between">
+                <p className="text-[14px] text-white">3 Members</p>
+                <img
+                  src="/src/assets/search-icon.svg"
+                  alt="send"
+                  className="h-[16px] w-[16px]  "
+                />
+              </div>
+              <div className="flex justify-between ">
+                <div className="flex gap-5 ">
+                  <img
+                    src="/src/assets/smalluser1.svg"
+                    alt="chat1"
+                    className={`
+            
+               "rounded-full h-[40px] w-[37.45px]"
+           `}
+                  />
+                  <div className="flex flex-col justify-center gap-[4px] -mt-1.5 ">
+                    <span className="text-[#B5B9BD] text-center text-[14px]">
+                      You
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-between ">
+                <div className="flex gap-5 ">
+                  <img
+                    src="/src/assets/smalluser1.svg"
+                    alt="chat1"
+                    className={`
+            
+               "rounded-full h-[40px] w-[37.45px]"
+           `}
+                  />
+                  <div className="flex flex-col py-2 gap-[4px] -mt-1.5 ">
+                    <span className="text-white  text-[14px]">
+                    Jerome Bell
+                    </span>
+                    <span className="text-[#B5B9BD] text-[10px]">@DianneRussell_04</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="mt-24">
             <PrivacySupportCard privacydata={PrivacySupportCardData} />
+            </div>
           </div>
         </div>
       </div>
@@ -215,4 +262,4 @@ const Chat = () => {
   );
 };
 
-export default Chat;
+export default Chat6;

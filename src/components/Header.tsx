@@ -25,17 +25,17 @@ const Header = () => {
           <img className="h-8 w-8" src="/src/assets/logo.svg" />
         </div>
         {/* Search and add icons*/}
-        <div className="flex flex-row gap-[12px] w-[616px] h-8 ms-[246px]">
+        <div className="flex flex-row  gap-[10px] w-[616px] h-8 ms-[190px]">
           {/* search bar */}
           <div
             style={{
-              boxShadow: true
+              boxShadow: false
                 ? "0px 0px 8px 2px #2A85FF99"
                 : "0px 8px 64px 0px #0000001A",
               width: true ? "616px" : "532px",
             }}
             className={`${
-              true ? "border-typo-blue border-[2px]" : ""
+              false ? "border-typo-blue border-[2px]" : ""
             } flex flex-row h-9 bg-[#2B2E30] space-x-5 items-center py-2.5 px-6  rounded-[18px]`}
           >
             <img className="h-5 w-5" src="/src/assets/search-icon.svg" />

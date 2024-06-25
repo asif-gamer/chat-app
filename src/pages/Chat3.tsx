@@ -1,42 +1,28 @@
+import DateTimeCard from "@/components/DateTimeCard";
+import DeleteCancel from "@/components/DeleteCancel";
 import PrivacySupportCard from "@/components/PrivacySupportCard";
 import UserChatCard from "@/components/UserChatCard";
 import UserDetailCard from "@/components/UserDetailCard";
+import UserMessageCard from "@/components/UserMessageCard";
 import UserMessageViewCard from "@/components/UserMessageViewCard";
 import UserPhoVidCard from "@/components/UserPhoVidCard";
-import { SendIcon } from "lucide-react";
 
-const UserChatData = [
+const UserChatDataA = [
   {
     name: "Kathryn Murphy",
     username: "Haha terrifying 😂",
     photo: "/src/assets/murphy.png",
   },
-  {
-    name: "Esther Howard",
-    username: "Haha terrifying 😂",
-    photo: "/src/assets/howard.png",
-  },
+];
+
+const UserChatDataB = [
   {
     name: "Jerome Bell",
     username: "Haha terrifying 😂",
     photo: "/src/assets/bell.png",
   },
-  {
-    name: "Devon Lane",
-    username: "Haha terrifying 😂",
-    photo: "/src/assets/lane.png",
-  },
-  {
-    name: "Cameron Williamson",
-    username: "Haha terrifying 😂",
-    photo: "/src/assets/william.png",
-  },
-  {
-    name: "Devon Lane",
-    username: "Haha terrifying 😂",
-    photo: "/src/assets/lane.png",
-  },
 ];
+
 const UserPicData1 = {
   src1: "/src/assets/pic1.jpg",
   src2: "/src/assets/pic2.jpg",
@@ -63,7 +49,7 @@ const PrivacySupportCardData = [
   },
 ];
 
-const Chat = () => {
+const Chat3 = () => {
   return (
     <div className="w-[1440px] mt-16  px-10">
       <div className="flex justify-between ">
@@ -94,13 +80,21 @@ const Chat = () => {
             </div>
           </div>
           <div className=" flex flex-col gap-[10px] -mt-5">
+            {UserChatDataA.map((data) => (
+              <UserChatCard
+                profilePic={data.photo}
+                name={data.name}
+                chat={data.username}
+                flag={false}
+              />
+            ))}
             <UserChatCard
               profilePic="/src/assets/chat1.png"
               name="Kathryn Murphy"
               chat="Haha terrifying 😂"
               flag={true}
             />
-            {UserChatData.map((data) => (
+            {UserChatDataB.map((data) => (
               <UserChatCard
                 profilePic={data.photo}
                 name={data.name}
@@ -140,50 +134,27 @@ const Chat = () => {
                 />
               </div>
             </div>
-
             <UserMessageViewCard
               profile="/src/assets/cooper.png"
-              name="Jane Cooper"
+              name="Jerome Bell"
               username="@DianneRussell_04"
-              message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore"
+              message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore "
             />
 
-            <div className="flex justify-between h-[68px] px-5 w-full items-center  rounded-b-2xl mt-[380px]">
-              <div
-                style={{}}
-                className={`${
-                  true ? "" : ""
-                } flex flex-row h-[48px] w-full bg-[#2B2E30] space-x-5 items-center py-2.5 px-7  rounded-[18px]`}
-              >
-                <input
-                  className="outline-none bg-transparent w-full text-typo-secondary rounded-sm!"
-                  placeholder="Write a message"
-                />
-                <div className="flex items-center gap-[24px] px-10">
-                  <img
-                    key={1}
-                    src="/src/assets/gallery.svg"
-                    alt="logo"
-                    className="h-[20px] w-[20px]"
-                  />
-                  <img
-                    key={2}
-                    src="/src/assets/mic.svg"
-                    alt="logo"
-                    className="h-[20px] w-[20px]"
-                  />
-                  <img
-                    key={3}
-                    src="/src/assets/emoji.svg"
-                    alt="logo"
-                    className="h-[20px] w-[20px]"
-                  />
-                  <button className="bg-[#2A85FF]  text-white rounded-[12px] px-4 py-2">
-                    <SendIcon size={16} />
-                  </button>
-                </div>
-              </div>
+            <div className="flex flex-col w-full mx-auto gap-7 mt-36">
+              <DateTimeCard month="May" date="12" year="2021" />
+
+              <UserMessageCard
+                profile="/src/assets/cooper.png"
+                name="Jerome Bell"
+                date="10:50 am"
+                message="Hi Dear"
+              />
+              <DeleteCancel
+               name="Chat Request"
+               message="Cameron Williamson wants to chat with you"
+              />
+
             </div>
           </div>
         </div>
@@ -215,4 +186,4 @@ const Chat = () => {
   );
 };
 
-export default Chat;
+export default Chat3;
