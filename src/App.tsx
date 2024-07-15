@@ -12,8 +12,8 @@ import Chat4 from "./pages/Chat4";
 import Chat5 from "./pages/Chat5";
 import Chat6 from "./pages/Chat6";
 import Chat7 from "./pages/Chat7";
-
-
+import DeleteChat from "./pages/DeleteChat";
+import Chat8 from "./pages/Chat8";
 
 const App = () => {
   return (
@@ -111,6 +111,22 @@ const App = () => {
         element={
           <Layout>
             <Chat7 />
+          </Layout>
+        }
+      />
+      <Route
+        path="/delete"
+        element={
+          <Layout>
+            <DeleteChat />
+          </Layout>
+        }
+      />
+      <Route
+        path="/chat8"
+        element={
+          <Layout>
+            <Chat8 />
           </Layout>
         }
       />

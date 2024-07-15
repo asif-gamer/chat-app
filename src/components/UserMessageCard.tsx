@@ -8,6 +8,7 @@ interface UserMessageCardProps {
   message: string;
   tick?: string;
   flag?: boolean;
+  isDel?: boolean;
 }
 const UserMessageCard = ({
   profile,
@@ -17,6 +18,7 @@ const UserMessageCard = ({
   message,
   tick,
   flag,
+  isDel,
 }: UserMessageCardProps) => {
   const [hover, setHover] = useState("");
 
@@ -43,15 +45,29 @@ const UserMessageCard = ({
               key={key}
               alt="emoji"
               className="h-[24px] w-[24px]"
-              onMouseEnter={() => setHover(`${key===0?"emoji":""}`)}
+              onMouseEnter={() => setHover(`${key === 0 ? "emoji" : ""}`)}
               onMouseLeave={() => setHover("")}
             />
           ))}
-          <div className={`${hover?"absolute mt-10 -ml-40  w-[30px] h-[20px] bg-gray-500":""}`}>{hover}</div>
+          <div
+            className={`${
+              hover
+                ? "absolute mt-10 -ml-40  w-[30px] h-[20px] bg-gray-500"
+                : ""
+            }`}
+          >
+            {hover}
+          </div>
         </div>
       </div>
-      <p className="ml-[47px] text-[14px] text-[#FAFBFC] tracking-tight">
-        {message}
+      <p
+        className={`ml-[47px] text-[14px] text-[#FAFBFC] tracking-tight ${
+          isDel
+            ? "font-sans text-[#B5B9BD] bg-[#1A1C1F] w-32 h-7 rounded-sm items-center justify-center px-2 py-0.5"
+            : ""
+        }`}
+      >
+        {isDel ? "Message deleted" : message}
       </p>
       <img
         src={tick}
